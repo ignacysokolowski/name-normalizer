@@ -37,7 +37,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `initializes middle name`() {
         assertThat(
             normalizer.normalize("Henry David Thoreau"),

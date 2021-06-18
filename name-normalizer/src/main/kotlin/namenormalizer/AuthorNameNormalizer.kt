@@ -6,7 +6,7 @@ class AuthorNameNormalizer {
         if (nameParts.isMononym()) {
             return name
         }
-        return nameParts.lastName() + ", " + nameParts.firstName()
+        return nameParts.lastName() + ", " + nameParts.firstName() + nameParts.middleNameInitial()
     }
 }
 
@@ -21,6 +21,13 @@ class NameParts(private val parts: List<String>) {
 
     fun firstName(): String =
         parts.first()
+
+    fun middleNameInitial(): String {
+        if (parts.count() < 3) {
+            return ""
+        }
+        return " " + parts[1][0] + "."
+    }
 
     fun lastName(): String =
         parts.last()
