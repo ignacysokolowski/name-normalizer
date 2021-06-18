@@ -44,7 +44,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `does not initialize one letter middle name`() {
         assertThat(
             normalizer.normalize("Harry S Truman"),

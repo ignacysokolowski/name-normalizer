@@ -32,8 +32,12 @@ class NameParts(private val parts: List<String>) {
     private fun hasMiddleName(): Boolean =
         parts.count() == 3
 
-    private fun initialize(name: String): String =
-        name[0] + "."
+    private fun initialize(name: String): String {
+        if (name.length == 1) {
+            return name
+        }
+        return name[0] + "."
+    }
 
     private fun middleName(): String =
         parts[1]
