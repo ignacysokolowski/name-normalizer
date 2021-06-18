@@ -10,7 +10,7 @@ class AuthorNameNormalizer {
     }
 }
 
-class NameParts(val parts: List<String>) {
+class NameParts(private val parts: List<String>) {
     fun isMononym(): Boolean =
         parts.count() == 1
 
