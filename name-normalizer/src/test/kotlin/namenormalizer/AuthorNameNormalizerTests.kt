@@ -16,7 +16,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `returns single word name`() {
         assertThat(
             normalizer.normalize("Plato"),
