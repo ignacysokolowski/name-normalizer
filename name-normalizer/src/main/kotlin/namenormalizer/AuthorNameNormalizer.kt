@@ -2,7 +2,7 @@ package namenormalizer
 
 class AuthorNameNormalizer {
     fun normalize(name: String): String {
-        val parts = NameParts.of(name)
+        val parts = NameParts.parse(name)
         if (parts.isMononym()) {
             return name
         }
@@ -15,7 +15,7 @@ class NameParts(
     private val suffix: String?,
 ) {
     companion object {
-        fun of(name: String): NameParts {
+        fun parse(name: String): NameParts {
             val suffixParts = name.trim().split(", ")
             if (suffixParts.count() > 2) {
                 throw IllegalArgumentException("Name can have at most one comma")
