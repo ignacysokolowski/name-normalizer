@@ -15,7 +15,7 @@ class NameParts(private val parts: List<String>) {
         parts.count() == 1
 
     fun firstName(): String =
-        parts[0]
+        parts.first()
 
     fun lastName(): String =
         parts.last()
