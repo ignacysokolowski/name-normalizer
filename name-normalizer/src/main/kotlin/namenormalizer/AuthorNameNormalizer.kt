@@ -41,9 +41,12 @@ class NameParts(
 
     fun middleNameInitials(): String =
         when {
-            !hasMiddleName() -> ""
+            hasNoMiddleName() -> ""
             else -> " " + initialize(middleNames())
         }
+
+    private fun hasNoMiddleName(): Boolean =
+        !hasMiddleName()
 
     private fun hasMiddleName(): Boolean =
         parts.count() > 2
