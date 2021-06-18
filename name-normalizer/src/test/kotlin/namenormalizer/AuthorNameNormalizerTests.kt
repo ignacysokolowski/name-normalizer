@@ -2,7 +2,6 @@ package namenormalizer
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
@@ -65,7 +64,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `throws when name contains two commas`() {
         assertThrows<IllegalArgumentException> {
             normalizer.normalize("Thurston, Howell, III")

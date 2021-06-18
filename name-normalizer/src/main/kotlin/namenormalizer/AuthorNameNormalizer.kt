@@ -17,6 +17,9 @@ class NameParts(
     companion object {
         fun of(name: String): NameParts {
             val suffixParts = name.trim().split(", ")
+            if (suffixParts.count() > 2) {
+                throw IllegalArgumentException("Name can have at most one comma")
+            }
             return NameParts(
                 suffixParts[0].split(" "),
                 suffixParts.getOrNull(1),
