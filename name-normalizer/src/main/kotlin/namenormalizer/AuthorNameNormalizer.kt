@@ -23,10 +23,10 @@ class NameParts(private val parts: List<String>) {
         parts.first()
 
     fun middleNameInitials(): String {
-        if (!hasMiddleName()) {
-            return ""
+        return when {
+            !hasMiddleName() -> ""
+            else -> " " + initialize(middleNames())
         }
-        return " " + initialize(middleNames())
     }
 
     private fun hasMiddleName(): Boolean =
