@@ -26,8 +26,11 @@ class NameParts(private val parts: List<String>) {
         if (parts.count() < 3) {
             return ""
         }
-        return " " + middleName()[0] + "."
+        return " " + initialize(middleName())
     }
+
+    private fun initialize(name: String): String =
+        name[0] + "."
 
     private fun middleName(): String =
         parts[1]
