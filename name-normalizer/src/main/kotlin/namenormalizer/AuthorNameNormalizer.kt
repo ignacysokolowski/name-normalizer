@@ -2,31 +2,31 @@ package namenormalizer
 
 class AuthorNameNormalizer {
     fun normalize(name: String): String {
-        val fullName = NameParts.parsedFrom(name)
+        val fullName = FullName.parsedFrom(name)
         if (fullName.isMononym()) {
             return name
         }
         return normalize(fullName)
     }
 
-    private fun normalize(name: NameParts) =
+    private fun normalize(name: FullName) =
         name.lastName() + ", " +
             name.firstName() +
             name.middleNameInitials() +
             name.suffix()
 }
 
-class NameParts(
+class FullName(
     private val parts: List<String>,
     private val suffix: String?,
 ) {
     companion object {
-        fun parsedFrom(name: String): NameParts {
+        fun parsedFrom(name: String): FullName {
             val nameAndSuffix = name.trim().split(", ")
             if (nameAndSuffix.count() > 2) {
                 throw IllegalArgumentException("Name can have at most one comma")
             }
-            return NameParts(
+            return FullName(
                 nameAndSuffix[0].split(" "),
                 nameAndSuffix.getOrNull(1),
             )
