@@ -9,7 +9,6 @@ import org.junit.jupiter.api.assertThrows
 class AuthorNameNormalizerTests {
     private val normalizer = AuthorNameNormalizer()
 
-    @Disabled
     @Test fun `returns empty string when empty`() {
         assertThat(
             normalizer.normalize(""),
