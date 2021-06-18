@@ -2,11 +2,12 @@ package namenormalizer
 
 class AuthorNameNormalizer {
     fun normalize(name: String): String {
-        val fullName = FullName.parsedFrom(name)
-        if (fullName.isMononym()) {
-            return name
+        return FullName.parsedFrom(name).let {
+            when {
+                it.isMononym() -> name
+                else -> normalize(it)
+            }
         }
-        return normalize(fullName)
     }
 
     private fun normalize(name: FullName) =
