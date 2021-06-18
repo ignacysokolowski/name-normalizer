@@ -23,11 +23,14 @@ class NameParts(private val parts: List<String>) {
         parts.first()
 
     fun middleNameInitial(): String {
-        if (parts.count() < 3) {
+        if (!hasMiddleName()) {
             return ""
         }
         return " " + initialize(middleName())
     }
+
+    private fun hasMiddleName(): Boolean =
+        parts.count() == 3
 
     private fun initialize(name: String): String =
         name[0] + "."
