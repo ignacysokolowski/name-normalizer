@@ -51,7 +51,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `initializes each of multiple middle names`() {
         assertThat(
             normalizer.normalize("Julia Scarlett Elizabeth Louis-Dreyfus"),
