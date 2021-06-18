@@ -22,12 +22,11 @@ class NameParts(private val parts: List<String>) {
     fun firstName(): String =
         parts.first()
 
-    fun middleNameInitials(): String {
-        return when {
+    fun middleNameInitials(): String =
+        when {
             !hasMiddleName() -> ""
             else -> " " + initialize(middleNames())
         }
-    }
 
     private fun hasMiddleName(): Boolean =
         parts.count() > 2
