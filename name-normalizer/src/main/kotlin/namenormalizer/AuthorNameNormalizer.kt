@@ -43,7 +43,7 @@ class NameParts(private val parts: List<String>) {
     }
 
     private fun middleNames(): List<String> =
-        parts.subList(1, parts.count() - 1)
+        parts.subList(1, parts.lastIndex)
 
     fun lastName(): String =
         parts.last()
