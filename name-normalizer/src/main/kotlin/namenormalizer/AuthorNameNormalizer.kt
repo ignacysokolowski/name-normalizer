@@ -10,7 +10,10 @@ class AuthorNameNormalizer {
     }
 
     private fun normalize(parts: NameParts) =
-        parts.lastName() + ", " + parts.firstName() + parts.middleNameInitials() + parts.suffix()
+        parts.lastName() + ", " +
+            parts.firstName() +
+            parts.middleNameInitials() +
+            parts.suffix()
 }
 
 class NameParts(
