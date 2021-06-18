@@ -35,11 +35,14 @@ class NameParts(private val parts: List<String>) {
         names.joinToString(" ") { initialize(it) }
 
     private fun initialize(name: String): String {
-        if (name.length == 1) {
+        if (isInitial(name)) {
             return name
         }
         return name[0] + "."
     }
+
+    private fun isInitial(name: String): Boolean =
+        name.length == 1
 
     private fun middleNames(): List<String> =
         parts.subList(1, parts.lastIndex)
