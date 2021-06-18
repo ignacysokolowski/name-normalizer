@@ -18,5 +18,5 @@ class NameParts(private val parts: List<String>) {
         parts[0]
 
     fun lastName(): String =
-        parts[1]
+        parts.last()
 }
