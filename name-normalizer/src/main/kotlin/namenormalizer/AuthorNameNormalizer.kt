@@ -6,8 +6,11 @@ class AuthorNameNormalizer {
         if (parts.isMononym()) {
             return name
         }
-        return parts.lastName() + ", " + parts.firstName() + parts.middleNameInitials() + parts.suffix()
+        return normalize(parts)
     }
+
+    private fun normalize(parts: NameParts) =
+        parts.lastName() + ", " + parts.firstName() + parts.middleNameInitials() + parts.suffix()
 }
 
 class NameParts(
