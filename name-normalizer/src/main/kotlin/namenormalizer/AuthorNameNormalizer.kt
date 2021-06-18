@@ -1,14 +1,13 @@
 package namenormalizer
 
 class AuthorNameNormalizer {
-    fun normalize(name: String): String {
-        return FullName.parsedFrom(name).let {
+    fun normalize(name: String): String =
+        FullName.parsedFrom(name).let {
             when {
                 it.isMononym() -> name
                 else -> normalize(it)
             }
         }
-    }
 
     private fun normalize(name: FullName) =
         name.lastName() + ", " +
