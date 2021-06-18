@@ -2,11 +2,11 @@ package namenormalizer
 
 class AuthorNameNormalizer {
     fun normalize(name: String): String {
-        val parts = name.split(" ")
-        if (isMononym(parts)) {
+        val nameParts = NameParts(name.split(" "))
+        if (isMononym(nameParts.parts)) {
             return name
         }
-        return lastName(parts) + ", " + firstName(parts)
+        return lastName(nameParts.parts) + ", " + firstName(nameParts.parts)
     }
 
     private fun isMononym(parts: List<String>): Boolean =
@@ -18,3 +18,5 @@ class AuthorNameNormalizer {
     private fun lastName(parts: List<String>): String =
         parts[1]
 }
+
+class NameParts(val parts: List<String>)
