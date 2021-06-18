@@ -6,14 +6,22 @@ class AuthorNameNormalizer {
         if (nameParts.isMononym()) {
             return name
         }
-        return nameParts.lastName() + ", " + nameParts.firstName() + nameParts.middleNameInitials()
+        return nameParts.lastName() + ", " + nameParts.firstName() + nameParts.middleNameInitials() + nameParts.suffix()
     }
 }
 
-class NameParts(private val parts: List<String>) {
+class NameParts(
+    private val parts: List<String>,
+    private val suffix: String?,
+) {
     companion object {
-        fun of(name: String): NameParts =
-            NameParts(name.trim().split(" "))
+        fun of(name: String): NameParts {
+            val suffixParts = name.trim().split(", ")
+            return NameParts(
+                suffixParts[0].split(" "),
+                suffixParts.getOrNull(1),
+            )
+        }
     }
 
     fun isMononym(): Boolean =
@@ -48,4 +56,7 @@ class NameParts(private val parts: List<String>) {
 
     fun lastName(): String =
         parts.last()
+
+    fun suffix(): String =
+        suffix?.let { ", $it" } ?: ""
 }

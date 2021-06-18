@@ -58,7 +58,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `appends suffixes to end`() {
         assertThat(
             normalizer.normalize("Martin Luther King, Jr."),
