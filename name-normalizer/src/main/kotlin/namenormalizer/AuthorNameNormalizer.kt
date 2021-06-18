@@ -26,11 +26,14 @@ class NameParts(private val parts: List<String>) {
         if (!hasMiddleName()) {
             return ""
         }
-        return " " + middleNames().joinToString(" ") { initialize(it) }
+        return " " + initialize(middleNames())
     }
 
     private fun hasMiddleName(): Boolean =
         parts.count() > 2
+
+    private fun initialize(names: List<String>): String =
+        names.joinToString(" ") { initialize(it) }
 
     private fun initialize(name: String): String {
         if (name.length == 1) {
