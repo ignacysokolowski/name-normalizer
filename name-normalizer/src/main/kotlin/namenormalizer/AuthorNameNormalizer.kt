@@ -16,7 +16,7 @@ class AuthorNameNormalizer {
             name.suffix()
 }
 
-class FullName(
+class FullName private constructor(
     private val parts: List<String>,
     private val suffix: String?,
 ) {
