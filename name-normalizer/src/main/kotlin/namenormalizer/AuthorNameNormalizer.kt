@@ -46,10 +46,7 @@ class NameParts(
         }
 
     private fun hasNoMiddleName(): Boolean =
-        !hasMiddleName()
-
-    private fun hasMiddleName(): Boolean =
-        parts.count() > 2
+        parts.count() < 3
 
     private fun initialize(names: List<String>): String =
         names.joinToString(" ") { initialize(it) }
