@@ -22,13 +22,13 @@ class NameParts(
 ) {
     companion object {
         fun parsedFrom(name: String): NameParts {
-            val suffixParts = name.trim().split(", ")
-            if (suffixParts.count() > 2) {
+            val nameAndSuffix = name.trim().split(", ")
+            if (nameAndSuffix.count() > 2) {
                 throw IllegalArgumentException("Name can have at most one comma")
             }
             return NameParts(
-                suffixParts[0].split(" "),
-                suffixParts.getOrNull(1),
+                nameAndSuffix[0].split(" "),
+                nameAndSuffix.getOrNull(1),
             )
         }
     }
