@@ -30,7 +30,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `trims leading and trailing whitespace`() {
         assertThat(
             normalizer.normalize("  Big Boi   "),

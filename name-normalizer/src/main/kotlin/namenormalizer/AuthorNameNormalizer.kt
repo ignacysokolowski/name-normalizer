@@ -2,7 +2,7 @@ package namenormalizer
 
 class AuthorNameNormalizer {
     fun normalize(name: String): String {
-        val nameParts = NameParts(name.split(" "))
+        val nameParts = NameParts(name.trim().split(" "))
         if (nameParts.isMononym()) {
             return name
         }
