@@ -23,7 +23,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Disabled
     @Test fun `swaps first and last names`() {
         assertThat(
             normalizer.normalize("Haruki Murakami"),
