@@ -34,12 +34,11 @@ class NameParts(private val parts: List<String>) {
     private fun initialize(names: List<String>): String =
         names.joinToString(" ") { initialize(it) }
 
-    private fun initialize(name: String): String {
-        if (isInitial(name)) {
-            return name
+    private fun initialize(name: String): String =
+        when {
+            isInitial(name) -> name
+            else -> name[0] + "."
         }
-        return name[0] + "."
-    }
 
     private fun isInitial(name: String): Boolean =
         name.length == 1
