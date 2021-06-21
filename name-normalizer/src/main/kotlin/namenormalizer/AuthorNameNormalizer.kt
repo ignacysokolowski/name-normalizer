@@ -13,7 +13,7 @@ class AuthorNameNormalizer {
         name.lastName() +
             separatedWith(", ", name.firstName()) +
             separatedWith(" ", name.middleNameInitials()) +
-            name.suffix()
+            separatedWith(", ", name.suffix())
 
     private fun separatedWith(separator: String, part: String): String =
         when {
@@ -73,5 +73,5 @@ class FullName private constructor(
         parts.last()
 
     fun suffix(): String =
-        suffix?.let { ", $it" } ?: ""
+        suffix ?: ""
 }
