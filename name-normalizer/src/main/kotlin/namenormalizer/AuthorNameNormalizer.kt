@@ -32,7 +32,7 @@ class FullName private constructor(
     companion object {
         fun parsedFrom(name: String): FullName {
             val nameAndSuffix = name.trim().split(", ")
-            require(nameAndSuffix.count() <= 2) { "Name can have at most one comma" }
+            require(nameAndSuffix.size <= 2) { "Name can have at most one comma" }
             return FullName(
                 parts = nameAndSuffix[0].split(" "),
                 suffix = nameAndSuffix.getOrNull(1),
@@ -41,7 +41,7 @@ class FullName private constructor(
     }
 
     fun isMononym(): Boolean =
-        parts.count() == 1
+        parts.size == 1
 
     fun firstName(): String =
         parts.first()
@@ -53,7 +53,7 @@ class FullName private constructor(
         }
 
     private fun hasNoMiddleName(): Boolean =
-        parts.count() < 3
+        parts.size < 3
 
     private fun initialize(names: List<String>): List<String> =
         names.map { initialize(it) }
