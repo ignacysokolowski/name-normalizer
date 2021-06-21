@@ -47,10 +47,7 @@ class FullName private constructor(
         parts.first()
 
     fun middleNameInitials(): List<String> =
-        initialize(middleNames())
-
-    private fun initialize(names: List<String>): List<String> =
-        names.map { initialize(it) }
+        middleNames().map { initialize(it) }
 
     private fun initialize(name: String): String =
         when {
