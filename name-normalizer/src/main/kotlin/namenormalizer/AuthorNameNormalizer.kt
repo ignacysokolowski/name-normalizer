@@ -9,7 +9,7 @@ class AuthorNameNormalizer {
             }
         }
 
-    private fun normalize(name: FullName) =
+    private fun normalize(name: FullName): String =
         name.lastName() +
             separatedWith(", ", name.firstName()) +
             separatedWith(" ", joinedWith(" ", name.middleNameInitials())) +
