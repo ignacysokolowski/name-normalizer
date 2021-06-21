@@ -12,11 +12,14 @@ class AuthorNameNormalizer {
     private fun normalize(name: FullName) =
         name.lastName() +
             separatedWith(", ", name.firstName()) +
-            name.middleNameInitials() +
+            separatedWith(" ", name.middleNameInitials()) +
             name.suffix()
 
     private fun separatedWith(separator: String, part: String): String =
-        separator + part
+        when {
+            part.isEmpty() -> ""
+            else -> separator + part
+        }
 }
 
 class FullName private constructor(
@@ -45,7 +48,7 @@ class FullName private constructor(
     fun middleNameInitials(): String =
         when {
             hasNoMiddleName() -> ""
-            else -> " " + initialize(middleNames())
+            else -> initialize(middleNames())
         }
 
     private fun hasNoMiddleName(): Boolean =
