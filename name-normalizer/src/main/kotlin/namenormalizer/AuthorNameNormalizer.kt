@@ -32,9 +32,7 @@ class FullName private constructor(
     companion object {
         fun parsedFrom(name: String): FullName {
             val nameAndSuffix = name.trim().split(", ")
-            if (nameAndSuffix.count() > 2) {
-                throw IllegalArgumentException("Name can have at most one comma")
-            }
+            require(nameAndSuffix.count() <= 2) { "Name can have at most one comma" }
             return FullName(
                 nameAndSuffix[0].split(" "),
                 nameAndSuffix.getOrNull(1),
