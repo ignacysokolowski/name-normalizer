@@ -70,7 +70,7 @@ class FullName private constructor(
         name.length == 1
 
     private fun middleNames(): List<String> =
-        parts.subList(1, parts.lastIndex)
+        parts.drop(1).dropLast(1)
 
     fun lastName(): String =
         parts.last()
