@@ -34,8 +34,8 @@ class FullName private constructor(
             val nameAndSuffix = name.trim().split(", ")
             require(nameAndSuffix.count() <= 2) { "Name can have at most one comma" }
             return FullName(
-                nameAndSuffix[0].split(" "),
-                nameAndSuffix.getOrNull(1),
+                parts = nameAndSuffix[0].split(" "),
+                suffix = nameAndSuffix.getOrNull(1),
             )
         }
     }
