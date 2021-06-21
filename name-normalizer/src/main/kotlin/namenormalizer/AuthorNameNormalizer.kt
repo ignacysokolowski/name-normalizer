@@ -47,13 +47,7 @@ class FullName private constructor(
         parts.first()
 
     fun middleNameInitials(): List<String> =
-        when {
-            hasNoMiddleName() -> emptyList()
-            else -> initialize(middleNames())
-        }
-
-    private fun hasNoMiddleName(): Boolean =
-        parts.size < 3
+        initialize(middleNames())
 
     private fun initialize(names: List<String>): List<String> =
         names.map { initialize(it) }
