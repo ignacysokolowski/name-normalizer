@@ -49,6 +49,9 @@ class FullName private constructor(
     fun middleNameInitials(): List<String> =
         middleNames().map { initialize(it) }
 
+    private fun middleNames(): List<String> =
+        parts.drop(1).dropLast(1)
+
     private fun initialize(name: String): String =
         when {
             isInitial(name) -> name
@@ -57,9 +60,6 @@ class FullName private constructor(
 
     private fun isInitial(name: String): Boolean =
         name.length == 1
-
-    private fun middleNames(): List<String> =
-        parts.drop(1).dropLast(1)
 
     fun lastName(): String =
         parts.last()
