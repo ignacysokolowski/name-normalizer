@@ -10,10 +10,13 @@ class AuthorNameNormalizer {
         }
 
     private fun normalize(name: FullName) =
-        name.lastName() + ", " +
-            name.firstName() +
+        name.lastName() +
+            separatedWith(", ", name.firstName()) +
             name.middleNameInitials() +
             name.suffix()
+
+    private fun separatedWith(separator: String, part: String): String =
+        separator + part
 }
 
 class FullName private constructor(
